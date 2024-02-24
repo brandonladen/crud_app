@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+                <div class="col-md-10 col-xs-10 col-sm-10">
+                    <h1 class="round3 text-center">Contacts</h1>
+                </div>
+ {% if person.count == 0%}
+  <div style='text-align: center; margin-top: 50px;'>
+                <h3 style='display: inline-block; line-height: 1.5;'>
+                    Please add at least one contact!
+                </h3>
+            </div>
+    {% endif %}
+            <br>
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-xs-10 col-sm-10"></div>
+                <div class="col-md-2 col-xs-1 col-sm-1">
+                    <br />
+                </div>
+            </div>
+            <br />
+            {% for p in person %}
+            <div class="row contact-item">
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+                <div class="col-md-7 col-xs-7 col-sm-7">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                                {{ p.f_name}} {{ p.l_name}}
+                            <span class="badge"></span>
+                        </li>
+                    </ul>
+                    <br>
+                </div>
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'read' p.id %}">
+                        <button type="button" class="btn btn-info">
+                            <span>READ</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{% url 'edit' p.id  %}">
+                        <button type="button" class="btn btn-info">
+                            <span>EDIT</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{% url 'delete' p.id %}">
+                        <button type="button" class="btn btn-danger">
+                            <span>DELETE</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'create' %}">
+                        <button type="button" class="btn btn-success">
+                            <span>CREATE NEW CONTACT</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

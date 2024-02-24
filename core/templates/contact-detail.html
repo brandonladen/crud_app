@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h2 class="mb-4">Contact Details for {{ person.f_name }} {{ person.l_name }}</h2>
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="row">First Name</th>
+                    <td>{{ person.f_name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Last Name</th>
+                    <td>{{ person.l_name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Email</th>
+                    <td>{{ person.email }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Phone</th>
+                    <td>{{ person.phone_number }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Address</th>
+                    <td>{{ person.address }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Time Created</th>
+                    <td>{{ person.time_created }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="{% url 'home' %}" class="btn btn-primary mt-3">BACK</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}
